@@ -2,6 +2,7 @@ package com.aep.training.depinj2;
 
 
 import com.aep.training.depinj2.controller.*;
+import com.aep.training.depinj2.scopesample.BookBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -25,8 +26,15 @@ public class Depinj2Application {
 
         /*GeneralPurposesController generalPurposesController =(GeneralPurposesController) context.getBean("generalPurposesController");
         //generalPurposesController.handleMessage();*/
-        UnderSamePackageLevelComponent underSamePackageLevelComponent=(UnderSamePackageLevelComponent)context.getBean("underSamePackageLevelComponent");
-        underSamePackageLevelComponent.testMe();
+
+        //UnderSamePackageLevelComponent underSamePackageLevelComponent=(UnderSamePackageLevelComponent)context.getBean("underSamePackageLevelComponent");
+        //underSamePackageLevelComponent.testMe();
+
+        BookBean book1= context.getBean(BookBean.class);
+        book1.sayIsbn();
+
+        BookBean book2= context.getBean(BookBean.class);
+        book2.sayIsbn();
     }
 
 }
